@@ -1,0 +1,663 @@
+
+<style>
+    .form-control-label {
+        margin-top: 6px;
+    }
+</style>
+
+<!-- ROW-1 OPEN -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Communication Settings</h3>
+            </div>
+
+            <div class="card-body p-6">
+                <div class="panel panel-primary">
+                    <div class="tab-menu-heading">
+                        <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
+                            <li class="nav-item"><a href="#phonesetting_tab" class="nav-link active" data-bs-toggle="tab">Phone Number Settings</a></li>
+                            <li class="nav-item"><a href="#hedisalert_tab" class="nav-link " data-bs-toggle="tab">Hedis Alerts</a></li>
+                            <li class="nav-item"><a href="#statusreason_tab" class="nav-link " data-bs-toggle="tab">Status Reason </a></li>
+                            <li class="nav-item"><a href="#status_tab" class="nav-link " data-bs-toggle="tab">Status Codes </a></li>
+                            <li class="nav-item"><a href="#category_tab" class="nav-link " data-bs-toggle="tab">Measure_Category </a></li>
+                            <li class="nav-item"><a href="#topic_tab" class="nav-link " data-bs-toggle="tab">Topic Codes </a></li>
+                            <li class="nav-item"><a href="#medium_tab" class="nav-link " data-bs-toggle="tab">Medium Codes </a></li>
+                            <li class="nav-item"><a href="#priority_tab" class="nav-link " data-bs-toggle="tab">Priority Codes </a></li>
+                            <li class="nav-item"><a href="#edu_cat_tab" class="nav-link " data-bs-toggle="tab">Education_category </a></li>
+                            <li class="nav-item"><a href="#com_cat_tab" class="nav-link " data-bs-toggle="tab">Communication_category </a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-body tabs-menu-body tab_area">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="phonesetting_tab">
+                                <div class="row">
+                                    <div class="col-md-3 col-lg-3">
+                                        <div class="form-group">
+                                            <div class="form-label mt-2">Activate SMS</div>
+                                            <label class="form-check form-switch form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" id="activatecheck" />
+                                                <span class="form-check-label">
+                                                    Activate SMS
+                                                </span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="form-label mt-2">Activate Call</div>
+                                            <label class="form-check form-switch form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" id="activatecallcheck" />
+                                                <span class="form-check-label">
+                                                    Activate Call
+                                                </span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="form-label mt-2">Activate Replenish When 150</div>
+                                            <label class="form-check form-switch form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" id="autopaycheck" />
+                                                <span class="form-check-label">
+                                                    I agree with replenishing
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mt-2">Replenish Amount</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="repamount">
+                                                </div>
+                                                <span class="col-auto">
+                                                    <button class="btn btn-primary" type="button" id="updaterepamountbtn">Update</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mt-2">Replenish Counts</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="repcounts">
+                                                </div>
+                                                <span class="col-auto">
+                                                    <button class="btn btn-primary" type="button" id="updaterepcountsbtn">Update</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mt-2">Price Per SMS</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="pricevalue">
+                                                </div>
+                                                <span class="col-auto">
+                                                    <button class="btn btn-primary" type="button" id="updatepricebtn">Update</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mt-2">Price Per Call</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="pricecallvalue">
+                                                </div>
+                                                <span class="col-auto">
+                                                    <button class="btn btn-primary" type="button" id="updatecallpricebtn">Update</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mt-2">Phone number  -----  Monthly Cost</label>
+                                            <div class="row gutters-xs">
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="phonenumber">
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="" id="phoneprice">
+                                                </div>
+                                                <span class="col-auto">
+                                                    <button class="btn btn-primary" type="button" id="updatephonebtn">Update</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-3 text-center">
+                                            <button class="btn btn-success" type="button" id="twiliophonebtn">Twilio Setting </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-lg-9">
+                                        <div class="card">
+                                            <div class="e-table pt-5 px-5 pb-5">
+                                                <div class="table-responsive table-lg pt-2">
+                                                    <table class="table table-striped table-bordered text-nowrap w-100" id="paymenthistorytable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>Reciept ID</th>
+                                                                <th>Name</th>
+                                                                <th>Email</th>
+                                                                <th>Amount</th>
+                                                                <th>Counts</th>
+                                                                <th>Type</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="hedisalert_tab">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="hedis_alert_type" class="form-control-label">Alert Types:</label>
+                                            <select class="form-control" id="hedis_alert_type">
+                                                <option value="1">Letter</option>
+                                                <option value="2">Email</option>
+                                                <option value="3">SMS</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="hedis_alert_language" class="form-control-label">Language:</label>
+                                            <select class="form-control" id="hedis_alert_language">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                               <!-- ROW-2 OPEN -->
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <h5  class="text-primary">Variable Definition</h5>
+                                        <div class="tags">
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT Name</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$PT_NAME</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT First Name</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$FirstName</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT Last Name</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$LastName</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT Middle Name</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$MiddleInitial</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT DOB</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$DOB</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">PT Address</button>
+                                                <button type="button" class="btn btn-info fs-7 py-1 px-3">$ADDRESS</button>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="tags mt-5">
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Clinic Name</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Clinic_name</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Clinic Portal</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$portal</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Clinic Tel</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Clinic_tel</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Clinic Web</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Clinic_web</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Clinic Ex</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Clinic_ex</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Contact Name</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Contact_name</button>
+                                            </div>
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Contact Tel</button>
+                                                <button type="button" class="btn btn-success fs-7 py-1 px-3">$Tel</button>
+                                            </div>
+
+                                        </div>
+                                        <div class="tags mt-5">
+                                            <div class="btn-group my-2" role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary fs-7 py-1 px-3 ">Missing Service</button>
+                                                <button type="button" class="btn btn-danger fs-7 py-1 px-3">$MissingService</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label for="hedis_alert_subject" class="form-control-label">Subject:</label>
+                                            <input type="text" class="form-control" id="hedis_alert_subject" />
+                                            <input type="hidden" class="form-control" id="hedis_alert_id" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="hedis_alert_body" class="form-control-label">Body:</label>
+                                            <div >
+                                                <textarea name="hedis_alert_body" id="hedis_alert_body">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group pt-2">
+                                            <button class="btn btn-primary" id = "hedisalertbtn">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ROW-2 CLOSED -->
+                            </div>
+
+                            <div class="tab-pane " id="statusreason_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Status Reason List</h3>
+                                                <div class="card-options">
+                                                    <button id="streasonaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="statusreasontable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane " id="status_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Status Code List</h3>
+                                                <div class="card-options">
+                                                        <button id="statusaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="statuscodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="category_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Category Code List</h3>
+                                                <div class="card-options">
+                                                        <button id="categoryaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="categorycodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane " id="topic_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Topic Code List</h3>
+                                                <div class="card-options">
+                                                    <button id="topicaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="topiccodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane " id="medium_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Medium Code List</h3>
+                                                <div class="card-options">
+                                                    <button id="mediumaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="mediumcodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane " id="priority_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Priority Code List</h3>
+                                                <div class="card-options">
+                                                    <button id="priorityaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="priorutycodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="edu_cat_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Education Category Code List</h3>
+                                                <div class="card-options">
+                                                    <button id="edcateaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="edcategprycodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="com_cat_tab">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header ">
+                                                <h3 class="card-title ">Communication Category Code List</h3>
+                                                <div class="card-options">
+                                                    <button id="comcateaddbtn" type="button" class="btn btn-md btn-primary"><i class="fe fe-plus mr-2"></i>Add </button>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered  w-100" id="comcategprycodetable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">CODE</th>
+                                                            <th scope="col">DISPLAY</th>
+                                                            <th scope="col">DEFINITION</th>
+                                                            <th scope="col">ACTIONS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- COL-END -->
+</div>
+
+<div class="modal fade" id="twilio-add-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="example-Modal3">Twilio SubAccount Setting </h5>
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+			</div>
+			<div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Clinic Phone number:</label>
+                            <input type="text" class="form-control" id="clisubphone">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Verified CallerId:</label>
+                            <input type="text" class="form-control" id="twidentity">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Sub Account SID:</label>
+                            <input type="text" class="form-control" id="clisubsid">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Sub Account Token:</label>
+                            <input type="text" class="form-control" id="clisubtoken">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Twilio Api key:</label>
+                            <input type="text" class="form-control" id="twilioapiKey">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">Twilio Api Secret</label>
+                            <input type="text" class="form-control" id="twilioapisecret">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="question" class="form-control-label">TwiML App Sid:</label>
+                            <input type="text" class="form-control" id="applicationsid">
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fa fa-close">&nbsp;</i> Close</button>
+                <button type="button" class="btn btn-primary" id="subtokenaddbtn"><i class="fa fa-save">&nbsp;</i> Save</button>
+            </div>
+			
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id = "commvalue-add-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Add </h5>
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+			</div>
+			<div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_code" class="form-control-label">Code:</label>
+                            <input type="text" class="form-control" id="com_code">
+                        </div>
+                    </div>
+                    <input type="hidden" id="com-tb" value="">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_disp" class="form-control-label">Display:</label>
+                            <input type="text" class="form-control" id="com_disp">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_desc" class="form-control-label">Description:</label>
+                            <textarea rows="3" class="form-control" id="com_desc"></textarea>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<div class="modal-footer">
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fa fa-close">&nbsp;</i> Close</button>
+                <button type="button" class="btn btn-primary" id="com_addbtn"><i class="fa fa-save">&nbsp;</i> Save</button>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id = "commvalue-edit-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Edit </h5>
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                </div>
+			</div>
+			<div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_e_code" class="form-control-label">Code:</label>
+                            <input type="text" class="form-control" id="com_e_code">
+                        </div>
+                    </div>
+                    <input type="hidden" id="com_e_tb" value="">
+                    <input type="hidden" id="com_e_id" value="">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_e_disp" class="form-control-label">Display:</label>
+                            <input type="text" class="form-control" id="com_e_disp">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="com_e_desc" class="form-control-label">Description:</label>
+                            <textarea rows="3" class="form-control" id="com_e_desc"></textarea>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fa fa-close">&nbsp;</i> Close</button>
+                <button type="button" class="btn btn-primary" id="com_editbtn"><i class="fa fa-save">&nbsp;</i> Save</button>
+            </div>
+		</div>
+	</div>
+</div>
+
+<script src='/assets/plugins/crypto-js/crypto-js.js'></script>
+<script src="/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js"></script>

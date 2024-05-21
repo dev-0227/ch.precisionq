@@ -1,0 +1,107 @@
+
+<style>
+	.pt-loader{
+		position: fixed;
+		z-index: 50000;
+		background: rgba(255, 255, 255);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+</style>
+<div class="pt-loader d-none">
+	<div class="row justify-content-center align-items-center d-flex h-100">
+		<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+			<div class="card bg-primary img-card box-primary-shadow">
+				<div class="card-body">
+					<div class="text-white text-center">
+						<h2 class="mb-2 number-font clinic-name"></h2>
+						<h4 class="text-white mb-2">Current Patients :  <span class="totalcount"></span></h4>
+						<p class="text-white mb-2">Loading By :  <span class="managername"></span></p>
+						<p class="text-white mb-2 ">Loading New Patients: Started at <span class="cdate"></span></p>
+						<div class="progress-bar progress-load">
+							<div class="progress-bar-value "></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ROW-1 OPEN -->
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Patient Data Loader</h3>
+            </div>
+            <div class="card-body p-6">
+                <div class="col-lg-12">
+					<div class="card shadow">
+						<div class="card-header">
+							<h3 class="mb-0 card-title">Patient File</h3>
+							<div class="card-toolbar">
+								<a class="btn btn-success useraddbtn" id="ptloadbtn" ><i class="fa fa-upload">&nbsp;</i>Upload</a>
+							  </div>
+						</div>
+						<div class="card-body">
+							<h6>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>uid</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>ufname</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>uminitial</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>ulname</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>DOB</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>upPhone</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>umobileno</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>uemail</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>upaddress</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>upcity</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>zipcode</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>upstate</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>sex</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>Age</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>language</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>ethnicity</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>race</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>deceased</span>
+								<span class='badge badge-primary badge-square badge-lg px-3 my-2'>deceasedDate</span>
+							</h6>
+							<input id="ptfile" type="file" class="dropify" data-height="150" />
+						</div>
+					</div>
+				</div>
+				
+            </div>
+        </div>
+    </div><!-- COL-END -->
+</div>
+<!-- ROW CLOSED -->
+<div class="modal fade" id="load-result-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" >Loaded Successfully</h5>
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+					<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+				</div>
+			</div>
+			<div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="../pages/ptlist?s=1" target="_blank"><span class="number newptcnt">0</span></a><br><span class="time">New Patients</span>
+						
+                    </div>
+                </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fa fa-close">&nbsp;</i> Close</button>
+			 </div>
+		</div>
+	</div>
+</div>

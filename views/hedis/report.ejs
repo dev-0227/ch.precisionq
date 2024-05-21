@@ -1,0 +1,96 @@
+ <style>
+ </style>
+<input type="hidden" id ="hedisdate" />
+<input type="hidden" id ="chosen_item" />
+<div class="row ml-2 mr-2 mt-2">
+	<h2 class="hedis-title text-primary mr-4"></h2>&nbsp;&nbsp;
+	<input type="hidden" id="hedis_clinic_name">
+	<h4 class="generatetitle mt-2 text-primary d-none"><span class="generatedfilename"></span> | Generated : <span class="generatedfiledate"></span><span class="reportedfile"></span></h4>
+</div>
+<div class="row ml-2 mr-2">
+    <div class="col-md-6 mt-2 settingicon">
+		<i class="fa fa-plus-circle addnewpathbtn text-primary" data-toggle="tooltip" title="" data-original-title="Add New Patient"></i>
+		<i class="fa fa-id-badge getinsidbtn text-primary" data-toggle="tooltip" title="" data-original-title="Get insurance id list"></i>
+		<i class="fa fa-get-pocket getemrdbtn text-primary" data-toggle="tooltip" title="" data-original-title="Get Emr id list"></i>
+		<i class="fa fa-filter sortbtn text-primary" data-toggle="tooltip" title="" data-original-title="Sort"></i>
+		<i class="fa fa-file-excel-o exportexcelbtn text-primary" data-toggle="tooltip" title="" data-original-title="Excel"></i>
+		<i class="fa fa-paint-brush colormodalbtn text-primary" data-toggle="tooltip" title="" data-original-title="Color Key"></i>
+		<a href="../pages/hedisdaily" target="_blank"><i class="fa fa-clock-o text-primary" data-toggle="tooltip" title="" data-original-title="Daily List"></i></a>
+		<a href="../pages/hedisnoncompliant" target="_blank"><i class="fa fa-wpforms text-primary" data-toggle="tooltip" title="" data-original-title="Last Visit List"></i></a>
+		<i class="fa fa-refresh refreshbtn text-primary" data-toggle="tooltip" title="" data-original-title="Refresh"></i>
+		<span class="text-primary pr-5">PTs <span class="totalptcnt"></span> | Measures <span class="totalmeasurecnt"></span></span>
+		
+		<label class="custom-control custom-radio d-inline-flex pl-3">
+            <input type="radio" class="custom-control-input donenotdoneoption" name="donenotdoneoption" value="1">
+            <span class="tag custom-control-label">All</span>
+		</label>
+		<label class="custom-control custom-radio d-inline-flex pl-3">
+            <input type="radio" class="custom-control-input donenotdoneoption" name="donenotdoneoption" value="3" checked>
+            <span class="tag custom-control-label">Non Compliant</span>
+		</label>
+		<label class="custom-control custom-radio d-inline-flex pl-3">
+            <input type="radio" class="custom-control-input donenotdoneoption" name="donenotdoneoption" value="2">
+            <span class="tag custom-control-label">Compliant</span>
+		</label>
+		<label class="custom-control custom-radio d-inline-flex pl-3">
+            <input type="radio" class="custom-control-input donenotdoneoption" name="donenotdoneoption" value="4">
+            <span class="tag custom-control-label">Generated-Reported</span>
+		</label>
+    </div>
+	<div class="col-md-6 mt-2 text-right outputbtnsection">
+       
+    </div>
+</div>
+<div class="progress progress-xs mt-3 mb-3 progress-load d-none">
+	<div class="progress-bar progress-bar-indeterminate bg-blue"></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="hedisreport" class="jexcel_modern"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="email-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id = "email-subject"></h5>
+				<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+					<i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+                    <div class="col-lg-12 text-center">
+                        <label class="custom-control custom-radio d-inline-flex">
+							<input type="radio" class="custom-control-input emailoption" name="emailoption" value="1" checked>
+							<span class="tag custom-control-label">Default</span>
+						</label>
+						<label class="custom-control custom-radio d-inline-flex">
+							<input type="radio" class="custom-control-input emailoption" name="emailoption" value="2">
+							<span class="tag custom-control-label">Custom</span>
+						</label>
+                    </div>
+                </div>
+				<div class="row customemailarea d-none">
+                    <div class="col-lg-12">
+                        <textarea id="custombody" class="form-control" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="row defaultemailarea">
+                    <div class="col-lg-12" id = "email-body">
+                        
+                    </div>
+                </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fa fa-close">&nbsp;</i> Close</button>
+		  		<button type="button" class="btn btn-primary" id="emailsendbtn"><i class="fa fa-upload">&nbsp;</i> Send</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include("appointmentModal"); %>
+<%- include("encounterModal"); %>
+

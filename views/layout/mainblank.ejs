@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+	<meta charset="utf-8" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="ConectorHealth" />
+	<meta property="og:site_name" content="ConectorHealth" />
+	<title>ConectorHealth</title>
+	<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+	<link href="/assets/plugins/custom/leaflet/leaflet.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/custom.css" rel="stylesheet" type="text/css"  />
+	<link href="/assets/css/card.css" rel="stylesheet" type="text/css"  />
+	<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css"/>
+	<link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
+		<div class="d-flex flex-column flex-root">
+			<div class="page d-flex flex-row flex-column-fluid">
+				<div id="kt_aside" class="aside aside-default aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+					<%- include("sidebar"); %>
+				</div>
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<div id="kt_header" class="header" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}" data-kt-sticky-enabled="true" style="animation-duration: 0.3s; top: 0px; z-index: 1000 !important;">
+						<%- include("header"); %>
+					</div>
+					<div class="content fs-6 d-flex flex-column flex-column-fluid" id="kt_content">
+						<%- include("toolbar"); %>
+						<div class="container-xxl">
+						<%- include(pageKey); %>
+						</div>
+					</div>
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<%- include("footer"); %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>var hostUrl = "/assets/";</script>
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="/assets/plugins/custom/leaflet/leaflet.bundle.js"></script>
+		<script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Vendors Javascript-->
+
+		<script src="/assets/plugins/fileuploads/js/fileupload.js"></script>
+        <script src="/assets/plugins/fileuploads/js/file-upload.js"></script>
+		<script src="/assets/js/custom/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		<script src="/assets/js/custom/autocomplete.js"></script>
+		<script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="/assets/js/api.js"></script>
+		<script src="/assets/js/pages/<%- pageKey -%>.js"></script>
+		<script>
+			async function inactivitylogout() {
+				let currentTime = new Date();
+				currentTime = currentTime.getTime() / 1000;
+				if (currentTime - localStorage.getItem('lastActivity') > 1800) {
+					await sendRequestWithToken('POST', localStorage.getItem('authToken'), {userid:localStorage.getItem('userid')}, "login/logout", (xhr, err) => {
+						if(!err){
+							
+						}
+					});
+					localStorage.removeItem("userid");
+					localStorage.removeItem("chosen_clinic");
+          			localStorage.removeItem("usertype");
+          			localStorage.removeItem("username");
+          			localStorage.removeItem("email");
+          			localStorage.removeItem("userclinic");
+          			localStorage.removeItem("lastActivity");
+          			localStorage.removeItem("loginid");
+					localStorage.removeItem("authToken");
+					localStorage.removeItem("permission");
+					window.location.replace("../");
+				}
+			}
+			$(document.body).click(function (e) {
+				var lastActivity = new Date();
+				lastActivity = lastActivity.getTime() / 1000;
+				localStorage.setItem('lastActivity', lastActivity);
+			});
+			$(document).ready(async function () {
+				"use strict";
+				
+				if(localStorage.getItem('usertype') == 1){
+					$(".superadmin-right").remove();
+				}
+				else if(localStorage.getItem('usertype') != 0 && localStorage.getItem('usertype') != 1){
+					$(".admin-right").remove();
+					$(".superadmin-right").remove();
+					if(localStorage.getItem('usertype') != 5){
+						$(".dc-right").remove();
+					}
+				}
+				
+				if (localStorage.getItem('userid') == '' || localStorage.getItem('userid') == undefined) {
+					window.location.replace("../");
+				}
+				var permissions = []
+				
+				$('.pq-menu').addClass("d-none");
+				if(localStorage.getItem('usertype')=="0")$("#menu_setting").removeClass("d-none");
+				var data_loaders = ["LOADERS_EMRPT_LOADER", "LOADERS_HEDIS_LOADER", "LOADERS_REFERRAL_LOADER", "LOADERS_PAYMENT_LOADER"]
+
+				let entry = {
+					id: localStorage.getItem('usertype'),
+				}
+				await sendRequestWithToken('POST', localStorage.getItem('authToken'), entry, "role/getPermission", (xhr, err) => {
+					if (!err) {
+						let result = JSON.parse(xhr.responseText)['data'];
+						let permission_names = [];
+						for(var i=0; i<result.length; i++){
+							permissions[result[i].perm_id] = result[i].value
+							permission_names[result[i].perm_id] = result[i].pname
+						}
+						var more = localStorage.getItem('permission')
+						if(more){
+							var diff = more.split(",");
+							for(var j=0; j<diff.length; j++){
+								let diff_data = diff[j].split('_');
+								if(diff_data.length>1){
+									permissions[diff_data[0]] = diff_data[1]
+								}
+
+							}
+						}
+						
+						var permission_items = []
+						for(var pid in permissions){
+							if(permissions[pid]!="000" && permission_names[pid]){
+								permission_items[permission_names[pid]] = permissions[pid];
+								for(var dl in data_loaders){
+									if(permission_names[pid]==data_loaders[dl])permission_items["DATA_LOADERS"]= permissions[pid];
+								}
+								
+								
+							}
+						}
+						$('.pq-menu').each(function(i, obj) {
+							if($(this).data("permit")){
+								if(permission_items[$(this).data("permit")])
+									$(this).removeClass("d-none");
+							}
+						})
+						
+
+					}
+				});
+
+				await sendRequestWithToken('GET', localStorage.getItem('authToken'), {}, "setting/getchosenclinics", (xhr, err) => {
+					let result = JSON.parse(xhr.responseText)['data'];
+					if (!err) {
+						$("#chosen_clinics").empty();
+						var selected = "";
+						for(var i = 0; i < result.length; i++){
+							selected = "";
+							if(localStorage.getItem('chosen_clinic')=='undefined')
+								localStorage.setItem('chosen_clinic', result[0]['id']);
+							if(result[i]['id'] == localStorage.getItem('chosen_clinic'))
+								selected = " selected ";
+							$("#chosen_clinics").append(`<option value = "`+result[i]['id']+`" `+selected+`>`+result[i]['name']+`</option>`);
+						}
+					}
+					else {
+						toastr.error('Credential is invalid');
+					}
+				});
+				
+				// setTimeout(function(){$(".clinic-name").html($("#chosen_clinics option:checked").text())}, 1000);
+				$("#chosen_clinics").change(function(){
+					localStorage.setItem('chosen_clinic', $(this).val());
+					// location.reload();
+				});
+				$(".app_user_name").html(localStorage.getItem('username'));
+				$(".app_user_email").html(localStorage.getItem('email'));
+				$(".managertype").html((localStorage.getItem('usertype')==0?"Superadmin":(localStorage.getItem('usertype')==1?"Administrator":(localStorage.getItem('usertype')==2?"Manager":(localStorage.getItem('usertype')==3?"Specialist":(localStorage.getItem('usertype')==4?"Staff":"Doctor"))))));
+				$("#sign_out_btn").click(async function(){
+					await sendRequestWithToken('POST', localStorage.getItem('authToken'), {userid:localStorage.getItem('userid')}, "login/logout", (xhr, err) => {
+						if(!err){
+							
+						}
+					});
+					localStorage.removeItem("userid");
+					localStorage.removeItem("chosen_clinic");
+          			localStorage.removeItem("usertype");
+          			localStorage.removeItem("username");
+          			localStorage.removeItem("email");
+          			localStorage.removeItem("loginid");
+					localStorage.removeItem("authToken");
+					localStorage.removeItem("permission");
+					window.location.replace("../");
+				});
+				
+				var lastActivity = new Date();
+				lastActivity = lastActivity.getTime() / 1000;
+				localStorage.setItem('lastActivity', lastActivity);
+				var checkActivity = setInterval(inactivitylogout, 5000);
+			});
+		</script>
+		<script>
+			$("#tab_type").val("1");
+			$(".hedisworkreport").click(function(){
+				$("#hedis_work_date_modal").modal("show");
+			});
+			$("#submireportlogbtn").click(function(){
+				switch($("#tab_type").val()){
+					case "1": action = "hedisaccess"; break;
+					case "2": action = "logger"; break;
+					default: action = "hedisaccess";
+				}
+				$("body").append("<form id = 'hedisaccessform' action = '../pages/"+action+"' method = 'POST'><input type='hidden' name='sdate' value='"+$("#usersdate").val()+"' /><input type='hidden' name='edate' value='"+$("#useredate").val()+"' /></form>");
+				$("#hedisaccessform").submit();
+				$("#hedisaccessform").remove();
+			});
+			$(".btn-tab").click(function(){
+				$(".btn-tab").removeClass('btn-lg');
+				$(this).addClass('btn-lg');
+				$("#tab_type").val($(this).data("type"));
+			});
+		</script>
+	</body>
+</html>

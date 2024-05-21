@@ -1,0 +1,434 @@
+
+
+<style>
+    #qrcode img{
+        margin:50px auto;
+    }
+    #wave {
+        position: relative;
+        height: 70px;
+        width: 100%;
+        background: #45aaf2;
+        transition: 0.5s;
+    }
+    #wave:before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 52%;
+        height: 80px;
+        background-color: #fff;
+        right: 0px;
+        top: 40px;
+    }
+    #wave:after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 100% 50%;
+        width: 56%;
+        height: 70px;
+        background-color: #45aaf2;
+        left: 0;
+        top: 24px;
+        transition: 0.5s;
+    }
+    .col-auto {
+     padding-right: 0px !important;
+    }
+    .colorinput-color {
+        display: inline-block;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 3px;
+        border: 1px solid #eaedf1;
+        color: #fff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .colorinput-input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+    .bg-azure, .azure::after{
+        background-color: #45aaf2;
+    }
+    .bg-indigo, .indigo::after{
+        background-color: #6574cd!important;
+    }
+    .bg-purple, .purple::after{
+        background-color: #8927ec!important;
+    }
+    .bg-pink, .pink::after{
+        background-color: #fc5296!important;
+    }
+    .bg-red, .red::after{
+        background-color: #e73827!important;
+    }
+    .bg-orange, .orange::after{
+        background-color: #fc7303!important;
+    }
+    .bg-yellow, .yellow::after{
+        background-color: #FBB034!important;
+    }
+    .bg-white, .lime::after{
+        background-color: #f7f8f6!important;
+    }
+    .bg-green, .green::after{
+        background-color: #4ecc48!important;
+    }
+    .bg-teal, .teal::after{
+        background-color: #1caf9f!important;
+    }
+    .postheader{
+        background-color: #45aaf2;
+        transition: 0.5s;
+    }
+    #post-main{
+        border:5px solid #45aaf2;
+        width:100%;
+        margin:0 auto;
+        background-color: #fff;
+        border-radius: 6px;
+        transition: 0.5s;
+    }
+
+    .dropzone .dz-preview .dz-image{
+		min-width: 200px !important;
+	}
+    .red .noUi-connects {
+        background: #c0392b;
+    }
+    .blue .noUi-connects {
+        background: #2f3be4;
+    }
+</style>
+<div class="row row-cards justify-content-center">
+    <div class="col-lg-7 col-xl-7">
+        <div id="post-main">
+            <div class="text-center postheader text-white">
+                <div class="mb-0 pt-5 fs-2x fw-bolder text-light-primary number-font clinic-name"></div>
+                <h5 class="mb-0 pt-3 text-light-primary clinic-address"></h5>
+                <h5 class="mb-0 pt-3 text-light-primary clinic-phone"></h5>
+                <h3 class="mb-0 pt-5 text-light-primary number-font">Scan the code for clinic information.</h3>
+            </div>
+            <div id="wave"></div>
+            <div class="text-center" id="qrcode"></div>
+            <div class="mt-20 mb-10 row mx-0" >
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="border-dotted border-dark d-flex justify-content-center " id="vcard_front">
+                        <div class="rccs__card rccs__card--dankort">
+                            <div class="rccs__card--front bg-white">
+                                <div class="rccs__card__background"></div>
+                                <div class="rccs__issuer "></div>
+                                <div class="rccs__name  rccs--filled d-none">John Smith</div>
+                                <div class="rccs__qr_code" id="qr_code"></div>
+                                <div class="rccs_front_expiry  rccs--filled">
+                                    <div class="rccs_front_expiry_sub_item d-none"><div id="rccs__number"></div></div>
+                                    <div class="rccs_front_expiry_sub_item d-none"><div id="rccs__email"></div></div>
+                                </div>
+                                <div class="rccs__chip"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class=" border-dotted d-flex justify-content-center " id="vcard_back">
+                        <div class="rccs__card rccs__card--dankort">
+                            <div class="rccs_card_back">
+                                <div class="rccs__card__background"></div>
+                                <div class="rccs_clinic_name"></div>
+                                <div class="rccs__expiry  rccs--filled">
+                                <div class="rccs__expiry_sub_item"><span class="rccs_clinic_address"></span></div>
+                                <div class="rccs__expiry_sub_item">Phone: <span class="rccs_clinic_phone"></span></div>
+                                <div class="rccs__expiry_sub_item">Fax: <span class="rccs_clinic_fax"></span></div>
+                                <div class="rccs__expiry_sub_item">Email: <span class="rccs_clinic_email"></span></div>
+                                <div class="rccs__expiry_sub_item">Visit <span class="rccs_clinic_url"></span></div>
+                                </div>
+                                <div class="rccs_clinic_web_qr d-none" id="clinic_web_qr"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="mt-8 d-flex justify-content-center">
+            <div class="text-center" >
+                <div class="ps-8"><label class="text-gray-600 fs-6 fw-semibold">Download VCard</label></div>
+                <div class="ps-8">
+                  <img alt="" id="vcard_pdf" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/pdf.svg">
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="ps-8"><label class="text-gray-600 fs-6 fw-semibold">Download QR Code</label></div>
+                <div class="ps-8">
+                  <img alt="" id="qr_pdf" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/pdf.svg">
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="col-md-5 no-print">
+        <div class="card">
+            <div class="card-body">
+                <label class="form-label">Background Color</label>
+                <div class="row gutters-xs d-flex align-items-center rounded border-primary bg-light-primary border border-dashed  py-5 fw-semibold fs-4">
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#eeeeee" key="white" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-gray"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#45aaf2" key="azure" class="colorinput-input colorbtn" checked />
+                            <span class="colorinput-color bg-azure"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#6574cd" key="indigo" class="colorinput-input colorbtn"  />
+                            <span class="colorinput-color bg-indigo"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#8927ec" key="purple" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-purple"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#fc5296" key="pink" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-pink"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#e73827" key="red" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-red"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#fc7303" key="orange" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-orange"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#FBB034" key="yellow" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-yellow"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#4ecc48" key="green" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-green"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <label class="colorinput">
+                            <input name="color" type="radio" value="#1caf9f" key="teal" class="colorinput-input colorbtn" />
+                            <span class="colorinput-color bg-teal"></span>
+                        </label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="color" class="p-2 h-50px colorbtn" id="custom_color" value="#CCCCCC" title="Choose a color">
+                    </div>
+                    
+                </div>
+                <label class="form-label mt-3">Background Pattern</label>
+                <div class="row rounded border-primary bg-light-primary border border-dashed  py-5 fw-semibold fs-4">
+                    <div class="col-md-2">
+                        <div class="border-black border">
+                            <div class="background-pattern-none w-100 h-50px" 
+                        style="background-color: #eeeeee; opacity: 0.3;"></div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-2">
+                        <div class="border-black border">
+                            <div class="background-pattern w-100 h-50px border"  
+                            style = "background-color: #ffffff; opacity: 0.3; background-image:  linear-gradient(#cccccc 0.6000000000000001px, transparent 0.6000000000000001px), linear-gradient(to right, #cccccc 0.6000000000000001px, #ffffff 0.6000000000000001px); background-size: 12px 12px;"></div>
+                            </div>
+                        </div>
+                    <div class="col-md-2">
+                        <div class="border-black border">
+                            <div class="background-pattern w-100 h-50px" 
+                            style ="background-color: #ffffff; opacity: 0.3; background-image: linear-gradient(135deg, #cccccc 25%, transparent 25%), linear-gradient(225deg, #cccccc 25%, transparent 25%), linear-gradient(45deg, #cccccc 25%, transparent 25%), linear-gradient(315deg, #cccccc 25%, #ffffff 25%); background-position:  6px 0, 6px 0, 0 0, 0 0; background-size: 6px 6px; background-repeat: repeat;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="border-black border">
+                            <div class="background-pattern w-100 h-50px " 
+                            style="background-color: #ffffff; opacity: 0.3; background-image:  linear-gradient(135deg, #cccccc 25%, transparent 25%), linear-gradient(225deg, #cccccc 25%, transparent 25%), linear-gradient(45deg, #cccccc 25%, transparent 25%), linear-gradient(315deg, #cccccc 25%, #ffffff 25%); background-position:  6px 0, 6px 0, 0 0, 0 0; background-size: 12px 12px; background-repeat: repeat;"></div> 
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="border-black border">
+                            <div class="background-pattern w-100 h-50px " 
+                            style="background-color: #ffffff; opacity: 0.3; background-image: radial-gradient( ellipse farthest-corner at 6px 6px , #cccccc, #cccccc 50%, #ffffff 50%); background-size: 6px 6px;"></div> 
+                        </div>
+                    </div>
+                </div>
+
+                <label class="form-label mt-3">Size & Position</label>
+                <div class="row rounded border-primary bg-light-primary border border-dashed  py-5 fw-semibold fs-4">
+                    <div class="col-md-6" >
+                        <div class="d-flex justify-content-center row my-2">
+                            <div class="col-md-3 text-end fs-6"></div>
+                            <div  class=" col-md-9 ">
+                                <select class="form-select form-select-sm " id="selected_object" aria-hidden="true" data-kt-initialized="1">
+                                    <option value="1" >Logo</option>
+                                    <option value="2" >QR Code</option>
+                                </select>
+                            </div>
+                        </div>
+					</div>
+                    <div class="col-md-6" >
+                        <div class="d-flex justify-content-center row my-2">
+                            <div class="col-md-3 text-end fs-6">Size</div>
+                            <div id="logo_size_slider" class="noUi-sm col-md-9 mt-2 red"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-center row my-2">
+                            <div class="col-md-3 text-end fs-6">X</div>
+                            <div id="logo_x_slider" class="noUi-sm col-md-9 mt-2 blue"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-center row my-2">
+                            <div class="col-md-3 text-end fs-6">Y</div>
+                            <div id="logo_y_slider" class="noUi-sm col-md-9 mt-2 blue"></div>
+                        </div>
+                    </div>
+                </div>
+                <label class="form-label mt-3">Font</label>
+                <div class="row rounded border-primary bg-light-primary border border-dashed  py-2 fw-semibold fs-4">
+                    <div class="col-md-6" >
+                        <div class="d-flex justify-content-center row my-2">
+                            <div  class=" col-md-12">
+                                <select class="form-select form-select-sm " id="selected_font_object" aria-hidden="true" data-kt-initialized="1">
+                                    <option value="0" >Logo</option>
+                                    <option value="1" selected>Clinic Name</option>
+                                    <option value="2" >Other Information</option>
+                                </select>
+                            </div>
+                        </div>
+					</div>
+                    <div class="col-md-6" >
+                        <div class="d-flex justify-content-center row my-2">
+                            <div  class=" col-md-12 ">
+                                <select class="form-select form-select-sm " id="selected_font_family" aria-hidden="true" data-kt-initialized="1">
+                                    <option value="auto" >auto</option>
+                                    <option value="Dinmi" >Dinmi</option>
+                                    <option value="DeltaItalic" >Delta Italic</option>
+                                    <option value="DeltaBold" >Delta Bold</option>
+                                    <option value="DeltaBoldItalic" >Delta Bold Italic</option>
+                                    <option value="DinGroteskLight" >DinGroteskLight</option>
+                                    <option value="DidotLH" >DidotLH</option>
+                                    <option value="DidotLHRoman" >DidotLHRoman</option>
+                                    <option value="Diotima" >Diotima</option>
+                                    <option value="AntiqueOlive" >AntiqueOlive</option>
+                                    <option value="AkzidenzGroteskBE" >AkzidenzGroteskBE</option>
+                                    <option value="AkzidenzGroteskBELightO" >AkzidenzGroteskBELightO</option>
+                                    <option value="AkzidenzGroteskBELight" >AkzidenzGroteskBELight</option>
+                                    <option value="AGBookRounded" >AGBookRounded</option>
+                                    <option value="AshleyScriptMT" >AshleyScriptMT</option>
+                                    <option value="AGSchoolbook" >AGSchoolbook</option>
+                                    <option value="BauerBodoni" >BauerBodoni</option>
+                                    <option value="BauerBodoniBold" >BauerBodoniBold</option>
+                                    <option value="Banco" >Banco</option>
+                                    <option value="Copperplate" >Copperplate</option>
+                                    <option value="CantorianMT" >CantorianMT</option>
+                                    <option value="Century" >Century</option>
+                                    <option value="Coronet" >Coronet</option>
+                                    <option value="ErasBook" >ErasBook</option>
+                                    <option value="EuropeanPi" >EuropeanPi</option>
+                                    <option value="AGaramond" >AGaramond</option>
+                                    <option value="AGaramondSemiBold" >AGaramondSemiBold</option>
+                                    <option value="GaramondThreeBold" >GaramondThreeBold</option>
+                                    <option value="GaramondThreeItalic" >GaramondThreeItalic</option>
+                                    <option value="GaramondThreeItalicO" >GaramondThreeItalicO</option>
+                                    <option value="Goudy" >Goudy</option>
+                                    <option value="GrotesqueMT" >GrotesqueMT</option>
+                                    <option value="GaramondBEBold" >GaramondBEBold</option>
+                                    <option value="GaramondBEBoldExpert" >GaramondBEBoldExpert</option>
+                                    <option value="HighlanderBold" >HighlanderBold</option>
+                                    <option value="HelveticaNeue" >HelveticaNeue</option>
+                                    <option value="HorleyOldStyleItalic" >HorleyOldStyleItalic</option>
+                                    <option value="HorleyOldStyleMT" >HorleyOldStyleMT</option>
+                                    <option value="KaufmannBold" >KaufmannBold</option>
+                                    <option value="MinionOrnaments" >MinionOrnaments</option>
+                                    <option value="Minion" >Minion</option>
+                                </select>
+                            </div>
+                        </div>
+					</div>
+                    
+                </div>
+                <label class="form-label mt-3">Layout</label>
+                <div class="row rounded border-primary bg-light-primary border border-dashed  py-5 fw-semibold fs-4">
+                    <div class="col-md-3 ">
+                        <div class="text-center">
+                            <img alt="" id="layout_left" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/left.svg">
+                          </div>
+					</div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img alt="" id="layout_right" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/right.svg">
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img alt="" id="layout_top" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/top.svg">
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img alt="" id="layout_bottom" class="w-50px me-3 cursor-pointer " src="/assets/media/svg/files/bottom.svg">
+                          </div>
+                    </div>
+                </div>
+                <input type="hidden" id="selected_bg_color" value="#eeeeee">
+                <input type="hidden" id="selected_bg_pattern">
+                <input type="hidden" id="selected_logo">
+                <input type="hidden" id="logo_size" value="0">
+                <input type="hidden" id="logo_x" value="0">
+                <input type="hidden" id="logo_y" value="0">
+                <input type="hidden" id="qr_size" value="0">
+                <input type="hidden" id="qr_x" value="0">
+                <input type="hidden" id="qr_y" value="0">
+                <input type="hidden" id="logo_width" value="0">
+				<input type="hidden" id="logo_height" value="0">
+                <input type="hidden" id="card_layout" value="0">
+                <input type="hidden" id="logo_font" value="auto">
+                <input type="hidden" id="name_font" value="auto">
+                <input type="hidden" id="other_font" value="auto">
+                <div class="pt-4 row align-items-center">
+                    <div class="col-md-6">
+                        <input class="form-check-input" type="checkbox" value="" id="check_clinic_web_qr" />
+                        <label class="form-check-label" for="check_clinic_web_qr">
+                            Web Site QR
+                        </label>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <button type="button" class="btn btn-info mb-1 mt-3" id="clinic_setting_save"><i class="fa fa-save">&nbsp;</i>Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="no-print mt-5">
+    <div class="text-center col-lg-12 col-xl-12">
+    </div>
+</div>
+
+<script src='/assets/plugins/qrcode.min.js'></script>
+<script src="/assets/plugins/jspdf.min.js"></script>
+<script src="/assets/plugins/html2canvas.min.js"></script>

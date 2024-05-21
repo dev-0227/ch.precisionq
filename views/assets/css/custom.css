@@ -1,0 +1,424 @@
+
+@font-face{
+    font-family: Dinmi;
+    src: local('/assets/fonts/DINMI___.woff'), url('/assets/fonts/DINMI___.woff') format('woff');
+}
+@font-face{
+    font-family: DeltaBold;
+    src: local('/assets/fonts/DJB_____.woff'), url('/assets/fonts/DJB_____.woff') format('woff');
+}
+@font-face{
+    font-family: DeltaBoldItalic;
+    src: local('/assets/fonts/DJBI____.woff'), url('/assets/fonts/DJBI____.woff') format('woff');
+}
+@font-face{
+    font-family: DeltaItalic;
+    src: local('/assets/fonts/DJMI____.woff'), url('/assets/fonts/DJMI____.woff') format('woff');
+}
+@font-face{
+    font-family: DinGroteskLight;
+    src: local('/assets/fonts/DNGL____.woff'), url('/assets/fonts/DNGL____.woff') format('woff');
+}
+@font-face{
+    font-family: DidotLH;
+    src: local('/assets/fonts/DOBOS___.woff'), url('/assets/fonts/DOBOS___.woff') format('woff');
+}
+@font-face{
+    font-family: DidotLHRoman;
+    src: local('/assets/fonts/DORSC___.woff'), url('/assets/fonts/DORSC___.woff') format('woff');
+}
+@font-face{
+    font-family: Diotima;
+    src: local('/assets/fonts/DTI_____.woff'), url('/assets/fonts/DTI_____.woff') format('woff');
+}
+@font-face{
+    font-family: AntiqueOlive;
+    src: local('/assets/fonts/AQNRI___.woff'), url('/assets/fonts/AQNRI___.woff') format('woff');
+}
+@font-face{
+    font-family: AkzidenzGroteskBE;
+    src: local('/assets/fonts/GFI_____.woff'), url('/assets/fonts/GFI_____.woff') format('woff');
+}
+@font-face{
+    font-family: AkzidenzGroteskBELightO;
+    src: local('/assets/fonts/GFL_____.woff'), url('/assets/fonts/GFL_____.woff') format('woff');
+}
+@font-face{
+    font-family: AkzidenzGroteskBELight;
+    src: local('/assets/fonts/GFLOS___.woff'), url('/assets/fonts/GFLOS___.woff') format('woff');
+}
+/**************/
+@font-face{
+    font-family: AGBookRounded;
+    src: local('/assets/fonts/KDRG____.woff'), url('/assets/fonts/KDRG____.woff') format('woff');
+}
+@font-face{
+    font-family: AshleyScriptMT;
+    src: local('/assets/fonts/LE______.woff'), url('/assets/fonts/LE______.woff') format('woff');
+}
+@font-face{
+    font-family: AGSchoolbook;
+    src: local('/assets/fonts/OKRG____.woff'), url('/assets/fonts/OKRG____.woff') format('woff');
+}
+@font-face{
+    font-family: BauerBodoni;
+    src: local('/assets/fonts/BBB_____.woff'), url('/assets/fonts/BBB_____.woff') format('woff');
+}
+@font-face{
+    font-family: BauerBodoniBold;
+    src: local('/assets/fonts/BBBOF___.woff'), url('/assets/fonts/BBBOF___.woff') format('woff');
+}
+@font-face{
+    font-family: Banco;
+    src: local('/assets/fonts/BC______.woff'), url('/assets/fonts/BC______.woff') format('woff');
+}
+
+@font-face{
+    font-family: Copperplate;
+    src: local('/assets/fonts/CP29C___.woff'), url('/assets/fonts/CP29C___.woff') format('woff');
+}
+@font-face{
+    font-family: CantorianMT;
+    src: local('/assets/fonts/EOSBI___.woff'), url('/assets/fonts/EOSBI___.woff') format('woff');
+}
+@font-face{
+    font-family: Century;
+    src: local('/assets/fonts/ICWI____.woff'), url('/assets/fonts/ICWI____.woff') format('woff');
+}
+@font-face{
+    font-family: Coronet;
+    src: local('/assets/fonts/N_RG____.woff'), url('/assets/fonts/N_RG____.woff') format('woff');
+}
+@font-face{
+    font-family: ErasBook;
+    src: local('/assets/fonts/ERBK____.woff'), url('/assets/fonts/ERBK____.woff') format('woff');
+}
+@font-face{
+    font-family: European;
+    src: local('/assets/fonts/EUO_____.woff'), url('/assets/fonts/EUO_____.woff') format('woff');
+}
+@font-face{
+    font-family: Eurostic;
+    src: local('/assets/fonts/EURO1___.woff'), url('/assets/fonts/EURO1___.woff') format('woff');
+}
+@font-face{
+    font-family: EuropeanPi;
+    src: local('/assets/fonts/EURO2___.woff'), url('/assets/fonts/EURO2___.woff') format('woff');
+}
+@font-face{
+    font-family: AGaramond;
+    src: local('/assets/fonts/GDB_____.woff'), url('/assets/fonts/GDB_____.woff') format('woff');
+}
+@font-face{
+    font-family: AGaramondSemiBold;
+    src: local('/assets/fonts/GDSIS___.woff'), url('/assets/fonts/GDSIS___.woff') format('woff');
+}
+@font-face{
+    font-family: GaramondThreeBold;
+    src: local('/assets/fonts/GMB_____.woff'), url('/assets/fonts/GMB_____.woff') format('woff');
+}
+@font-face{
+    font-family: GaramondThreeItalic;
+    src: local('/assets/fonts/GMI_____.woff'), url('/assets/fonts/GMI_____.woff') format('woff');
+}
+@font-face{
+    font-family: GaramondThreeItalicO;
+    src: local('/assets/fonts/GMIO____.woff'), url('/assets/fonts/GMIO____.woff') format('woff');
+}
+@font-face{
+    font-family: Goudy;
+    src: local('/assets/fonts/GO______.woff'), url('/assets/fonts/GO______.woff') format('woff');
+}
+@font-face{
+    font-family: GrotesqueMT;
+    src: local('/assets/fonts/GQBL____.woff'), url('/assets/fonts/GQBL____.woff') format('woff');
+}
+@font-face{
+    font-family: GaramondBEBold;
+    src: local('/assets/fonts/GWBOF___.woff'), url('/assets/fonts/GWBOF___.woff') format('woff');
+}
+@font-face{
+    font-family: GaramondBEBoldExpert;
+    src: local('/assets/fonts/GWBXP___.woff'), url('/assets/fonts/GWBXP___.woff') format('woff');
+}
+@font-face{
+    font-family: HighlanderBold;
+    src: local('/assets/fonts/HHBI____.woff'), url('/assets/fonts/HHBI____.woff') format('woff');
+}
+
+@font-face{
+    font-family: HelveticaNeue;
+    src: local('/assets/fonts/HLHCO___.woff'), url('/assets/fonts/HLHCO___.woff') format('woff');
+}
+
+@font-face{
+    font-family: HorleyOldStyleItalic;
+    src: local('/assets/fonts/HSI_____.woff'), url('/assets/fonts/HSI_____.woff') format('woff');
+}
+@font-face{
+    font-family: HorleyOldStyleMT;
+    src: local('/assets/fonts/HSLI____.woff'), url('/assets/fonts/HSLI____.woff') format('woff');
+}
+@font-face{
+    font-family: KaufmannBold;
+    src: local('/assets/fonts/KFB_____.woff'), url('/assets/fonts/KFB_____.woff') format('woff');
+}
+@font-face{
+    font-family: MinionOrnaments;
+    src: local('/assets/fonts/MOOR____.woff'), url('/assets/fonts/MOOR____.woff') format('woff');
+}
+@font-face{
+    font-family: Minion;
+    src: local('/assets/fonts/MORG____.woff'), url('/assets/fonts/MORG____.woff') format('woff');
+}
+
+
+.table td{
+	vertical-align: middle;
+}
+
+
+
+
+#loader {
+    display: flex;
+    align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	z-index: 100000000;
+	opacity: 1;
+	overflow: hidden;
+	text-align: center;
+}
+#loader {
+	background-color: #fff;
+}
+.cssload-thecube {
+	width: 56px;
+	height: 56px;
+	margin: 0 auto;
+	margin-top: 37px;
+	position: relative;
+	transform: rotateZ(45deg);
+		-o-transform: rotateZ(45deg);
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		-moz-transform: rotateZ(45deg);
+}
+.cssload-thecube .cssload-cube {
+	position: relative;
+	transform: rotateZ(45deg);
+		-o-transform: rotateZ(45deg);
+		-ms-transform: rotateZ(45deg);
+		-webkit-transform: rotateZ(45deg);
+		-moz-transform: rotateZ(45deg);
+}
+.cssload-thecube .cssload-cube {
+	float: left;
+	width: 50%;
+	height: 50%;
+	position: relative;
+	transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+}
+.cssload-thecube .cssload-cube:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #629ee7;
+	animation: cssload-fold-thecube 2.76s infinite linear both;
+		-o-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-ms-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-webkit-animation: cssload-fold-thecube 2.76s infinite linear both;
+		-moz-animation: cssload-fold-thecube 2.76s infinite linear both;
+	transform-origin: 100% 100%;
+		-o-transform-origin: 100% 100%;
+		-ms-transform-origin: 100% 100%;
+		-webkit-transform-origin: 100% 100%;
+		-moz-transform-origin: 100% 100%;
+}
+.cssload-thecube .cssload-c2 {
+	transform: scale(1.1) rotateZ(90deg);
+		-o-transform: scale(1.1) rotateZ(90deg);
+		-ms-transform: scale(1.1) rotateZ(90deg);
+		-webkit-transform: scale(1.1) rotateZ(90deg);
+		-moz-transform: scale(1.1) rotateZ(90deg);
+}
+.cssload-thecube .cssload-c3 {
+	transform: scale(1.1) rotateZ(180deg);
+		-o-transform: scale(1.1) rotateZ(180deg);
+		-ms-transform: scale(1.1) rotateZ(180deg);
+		-webkit-transform: scale(1.1) rotateZ(180deg);
+		-moz-transform: scale(1.1) rotateZ(180deg);
+}
+.cssload-thecube .cssload-c4 {
+	transform: scale(1.1) rotateZ(270deg);
+		-o-transform: scale(1.1) rotateZ(270deg);
+		-ms-transform: scale(1.1) rotateZ(270deg);
+		-webkit-transform: scale(1.1) rotateZ(270deg);
+		-moz-transform: scale(1.1) rotateZ(270deg);
+}
+.cssload-thecube .cssload-c2:before {
+	animation-delay: 0.35s;
+		-o-animation-delay: 0.35s;
+		-ms-animation-delay: 0.35s;
+		-webkit-animation-delay: 0.35s;
+		-moz-animation-delay: 0.35s;
+}
+.cssload-thecube .cssload-c3:before {
+	animation-delay: 0.69s;
+		-o-animation-delay: 0.69s;
+		-ms-animation-delay: 0.69s;
+		-webkit-animation-delay: 0.69s;
+		-moz-animation-delay: 0.69s;
+}
+.cssload-thecube .cssload-c4:before {
+	animation-delay: 1.04s;
+		-o-animation-delay: 1.04s;
+		-ms-animation-delay: 1.04s;
+		-webkit-animation-delay: 1.04s;
+		-moz-animation-delay: 1.04s;
+}
+
+
+
+@keyframes cssload-fold-thecube {
+	0%, 10% {
+		transform: perspective(105px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		transform: perspective(105px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		transform: perspective(105px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-o-transform: perspective(105px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-o-transform: perspective(105px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-o-transform: perspective(105px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-ms-transform: perspective(105px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-ms-transform: perspective(105px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-ms-transform: perspective(105px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-webkit-transform: perspective(105px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-webkit-transform: perspective(105px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-webkit-transform: perspective(105px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes cssload-fold-thecube {
+	0%, 10% {
+		-moz-transform: perspective(105px) rotateX(-180deg);
+		opacity: 0;
+	}
+	25%,
+				75% {
+		-moz-transform: perspective(105px) rotateX(0deg);
+		opacity: 1;
+	}
+	90%,
+				100% {
+		-moz-transform: perspective(105px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+.home-slider #loader {
+	z-index: 9999;
+	background: #fff;
+}
+#loader .position-center-center {
+	text-align: center;
+	width: 100%;
+}
+#loader .position-center-center p {
+	color: #CCC;
+	font-style: italic;
+	margin-top: 30px;
+}
+
+.progress-bar {
+height: 4px;
+background-color: rgba(5, 114, 206, 0.2);
+width: 100%;
+overflow: hidden;
+}
+
+.progress-bar-value {
+width: 100%;
+height: 100%;
+background-color: rgb(5, 114, 206);
+animation: indeterminateAnimation 1s infinite linear;
+transform-origin: 0% 50%;
+}
+
+@keyframes indeterminateAnimation {
+0% {
+    transform:  translateX(0) scaleX(0);
+}
+40% {
+    transform:  translateX(0) scaleX(0.4);
+}
+100% {
+    transform:  translateX(100%) scaleX(0.5);
+}
+}
+
+.d-none {
+    display: none !important;
+}
+

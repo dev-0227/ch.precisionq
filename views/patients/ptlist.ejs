@@ -1,0 +1,50 @@
+<style>
+    .jexcel{
+        width:100%!important;
+    }
+	.settingicon i{
+		padding:10px;
+		font-size: 0.9rem;
+		cursor: pointer;
+	}
+	.blue-color{
+		color:blue;
+	}
+	#ui-datepicker-div{
+		z-index: 10000!important;
+	}
+</style>
+
+<input type="hidden" id ="ptdate" />
+<input type="hidden" id ="chosen_item" />
+
+<div class="card">
+    <div class="card-header row d-flex align-items-center">
+        <div class="col-md-6">
+            <h2 class="text-primary mt-6"><span class="pt-title"></span><span class="totalflag"> | Total Patients : <span class="totalcount"></span></span></h2>
+        </div>
+        <div class="col-md-3">
+            <div class=" d-flex justify-content-xl-end"> 
+            <a class="btn btn-primary patient_add_btn" style="display:none;"><i class="fa fa-plus">&nbsp;</i>Add</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <input id="search_jexcel" class="form-control form-control-solid mb-3 mb-lg-0 form-control form-control-solid mb-3 mb-lg-0-solid" placeholder="Search" /></div>
+        </div>
+    </div>
+    <div class="progress-bar progress-load">
+        <div class="progress-bar-value "></div>
+    </div>
+    <div class="card-body p-0">
+        <div class="col-md-12">
+            <div id="ptreport" class="jexcel_modern"></div>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-md-3 pt-4" id="jexcel_details"></div>
+        <div class="col-md-9 d-flex justify-content-xl-end"><ul id="pagination" class="pagination"></ul></div>
+    </div>
+</div>
+
+
+<%- include("patientModal"); %>

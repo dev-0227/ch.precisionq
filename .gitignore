@@ -1,0 +1,6 @@
+/node_modules
+/uploads
+api.js
+config.js
+package-lock.json
+/tmp
